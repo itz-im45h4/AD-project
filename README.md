@@ -74,12 +74,6 @@ ridelink/
 | **Member 2 — Driver & Vehicle** | `driver-vehicle-service` | Driver profile, vehicle, ONLINE/OFFLINE/BUSY, simulated location, `GET /drivers/available` | Deciding who gets assigned |
 | **Member 3 — Ride Management** | `ride-management-service` | Ride lifecycle state machine, assignment rule, orchestration | Calculating fare, payment |
 | **Member 4 — Fare & Payment** | `fare-payment-service` | Estimation, final fare, simulated payment, receipt, publishes `PaymentRecorded` | Ride status transitions |
-
-**Overlap Contract for Report (copy this line):**
-> *Driver&Vehicle answers "who's available", Ride Management decides "who's assigned". Fare&Payment answers "how much", Ride Management owns "what's the ride state".*
-
-Detailed responsibilities: see `/docs/Member-Responsibilities.md`
-
 ---
 
 ### 4. Service Ports & Swagger
