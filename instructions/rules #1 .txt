@@ -1,0 +1,15 @@
+Please note the following mandatory technology requirements for the IT3130 - AD Group Assignment:
+
+1. All four microservices must be developed using Java and Spring Boot.
+
+2. The MERN stack is not permitted for this assignment.
+
+3. Groups may use MongoDB as the database for individual microservices, where appropriate.
+
+4. Each microservice must maintain its own database or data store. A single shared database must not be used across all microservices.
+
+5. A frontend application is not required. The completed system may be demonstrated using Swagger UI and Postman.
+
+Any submission developed using the MERN stack, including Node.js and Express as replacements for the required Spring Boot backend, will be considered non-compliant with the assignment requirements and will receive zero marks.
+
+Please ensure that all group members understand this requirement before beginning or continuing the implementation.
