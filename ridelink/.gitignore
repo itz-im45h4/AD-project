@@ -1,0 +1,35 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+
+# Build output and reports
+**/target/
+**/build/
+*.log
+coverage/
+
+# Maven Wrapper binary
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

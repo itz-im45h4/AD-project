@@ -32,7 +32,7 @@
 
 | Layer | Choice |
 | :--- | :--- |
-| **Language / Framework** | Java 21, Spring Boot 3.3.x |
+| **Language / Framework** | Java 21, Spring Boot 4.1.1 |
 | **Build** | Maven multi-module monorepo |
 | **Database** | MongoDB Atlas, one cluster (M0 free tier), 4 databases — one per service, each with a dedicated DB user scoped only to its own database |
 | **ODM** | Spring Data MongoDB |
@@ -57,21 +57,24 @@ ridelink/
 │   └── src/main/java/.../account/
 ├── driver-vehicle-service/
 │   ├── pom.xml
-│   └── src/main/java/.../driver/
+│   └── src/main/java/.../drivervehicle/
 ├── ride-management-service/
 │   ├── pom.xml
 │   └── src/main/java/.../ride/
 ├── fare-payment-service/
 │   ├── pom.xml
-│   └── src/main/java/.../fare/
+│   └── src/main/java/.../farepayment/
 ├── docs/
 │   ├── architecture.md             (Mermaid component diagram)
 │   ├── sequence-ride-booking.md    (Mermaid sequence diagram)
-│   └── contracts/                  (agreed REST + event JSON schemas, Week 1 output)
+│   ├── contracts/                  (agreed REST + event JSON schemas)
+│   ├── decisions/                  (architecture decision records)
+│   ├── report/                     (technical report source material)
+│   └── testing/                    (test plan and evidence)
 ├── postman/
 │   └── RideLink.postman_collection.json
-├── .github/workflows/ci.yml
-└── README.md                       (owners table, startup order, env vars, test commands)
+├── ../.github/workflows/ci.yml     (GitHub requires workflows at repository root)
+└── README.md                       (build-root commands; repository README has project guide)
 ```
 
 ## 5. Member Assignment & Communication Matrix

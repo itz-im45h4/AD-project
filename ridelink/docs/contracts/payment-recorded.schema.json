@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ridelink.local/contracts/payment-recorded.v1.schema.json",
+  "title": "PaymentRecorded",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventId", "eventType", "occurredAt", "rideId", "paymentId", "status", "amount", "currency"],
+  "properties": {
+    "eventId": { "type": "string", "format": "uuid" },
+    "eventType": { "const": "PaymentRecorded" },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "rideId": { "type": "string", "format": "uuid" },
+    "paymentId": { "type": "string", "format": "uuid" },
+    "status": { "type": "string", "enum": ["PENDING", "SUCCESS", "FAILED"] },
+    "amount": { "type": "number", "minimum": 0 },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+  }
+}
