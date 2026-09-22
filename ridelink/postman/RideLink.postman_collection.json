@@ -1,0 +1,15 @@
+{
+  "info": {
+    "name": "RideLink API",
+    "description": "Shared collection skeleton. Add requests only after their DTO contract is agreed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "accountBaseUrl", "value": "http://localhost:8081" },
+    { "key": "driverVehicleBaseUrl", "value": "http://localhost:8082" },
+    { "key": "rideBaseUrl", "value": "http://localhost:8083" },
+    { "key": "farePaymentBaseUrl", "value": "http://localhost:8084" },
+    { "key": "accessToken", "value": "" }
+  ],
+  "item": []
+}
