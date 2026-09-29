@@ -1,0 +1,2 @@
+package com.ridelink.drivervehicle.exception; import java.net.URI; import org.springframework.http.*; import org.springframework.web.bind.annotation.*;
+@RestControllerAdvice public class ApiExceptionHandler { @ExceptionHandler(ApiException.class) ResponseEntity<ProblemDetail> handle(ApiException e){ ProblemDetail p=ProblemDetail.forStatusAndDetail(e.getStatus(),e.getMessage());p.setType(URI.create("https://ridelink.local/problems/"+e.getStatus().name().toLowerCase()));return ResponseEntity.status(e.getStatus()).body(p);} }
