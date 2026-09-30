@@ -1,0 +1,1 @@
+package com.ridelink.farepayment.repository; import java.util.Optional; import com.ridelink.farepayment.domain.Fare; import org.springframework.data.mongodb.repository.MongoRepository; public interface FareRepository extends MongoRepository<Fare,String>{Optional<Fare> findByRideId(String rideId);}
