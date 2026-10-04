@@ -6,20 +6,19 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * MongoDB document representing a finalized fare record.
- *
- * <p><strong>Data Boundary:</strong>
- * {@code rideId} is a logical foreign key referencing the Ride document in Ride Management Service.
- * Fare amount is stored as a high-precision {@link BigDecimal}.</p>
+ * MongoDB document representing an auditable, immutable receipt record
+ * issued for a processed payment.
  */
-@Document("fares")
-public class Fare {
+@Document("receipts")
+public class Receipt {
 
     @Id
     private String id;
     private String rideId;
+    private String paymentId;
     private BigDecimal amount;
-    private Instant createdAt;
+    private PaymentStatus status;
+    private Instant issuedAt;
 
     public String getId() {
         return id;
@@ -37,6 +36,14 @@ public class Fare {
         this.rideId = rideId;
     }
 
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
+
     public BigDecimal getAmount() {
         return amount;
     }
@@ -45,11 +52,19 @@ public class Fare {
         this.amount = amount;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
+    public PaymentStatus getStatus() {
+        return status;
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
+    public void setStatus(PaymentStatus status) {
+        this.status = status;
+    }
+
+    public Instant getIssuedAt() {
+        return issuedAt;
+    }
+
+    public void setIssuedAt(Instant issuedAt) {
+        this.issuedAt = issuedAt;
     }
 }
