@@ -15,14 +15,11 @@
     <artifactId>ridelink</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>RideLink</name>
-    <description>RideLink backend microservices reactor</description>
+    <name>RideLink - Ride Management Service</name>
+    <description>RideLink Ride Management Service (Member 3 Submission)</description>
 
     <modules>
-        <module>account-service</module>
-        <module>driver-vehicle-service</module>
         <module>ride-management-service</module>
-        <module>fare-payment-service</module>
     </modules>
 
     <properties>

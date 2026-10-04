@@ -17,6 +17,7 @@ All paths below are relative to `/api/v1`. Fields marked required must be valida
 | Operation | Request | Response |
 | --- | --- | --- |
 | `POST /drivers/profile` | `userId`, `licenseNumber`, `vehicle` (`make`, `model`, `plateNumber`, `capacity`), `serviceZone` | `id`, `userId`, `availability`, `serviceZone`, `vehicle`, `createdAt` |
+| `GET /drivers/{driverId}` | — | driver operational profile with vehicle details |
 | `PUT /drivers/{driverId}/availability` | `availability` (`ONLINE`, `OFFLINE`, `ON_TRIP`) | updated driver profile |
 | `PUT /drivers/{driverId}/location` | `latitude`, `longitude`, `zone` | updated driver profile |
 | `GET /drivers/available?zone={zone}` | — | array of `id`, `userId`, `serviceZone`, `latitude`, `longitude`, `vehicle` |
@@ -41,7 +42,8 @@ The ride state machine is `REQUESTED → ASSIGNED → ACCEPTED → IN_PROGRESS �
 | --- | --- | --- |
 | `POST /fares/estimate` | `pickup`, `destination`, `distanceKm`, `durationMinutes` | `estimatedFare`, `currency`, `baseFare`, `perKmRate`, `perMinuteRate` |
 | `POST /fares/finalize` | `rideId`, `distanceKm`, `durationMinutes` | `fareId`, `rideId`, `finalFare`, `currency`, `status` |
+| `GET /fares/{rideId}` | — | `fareId`, `rideId`, `finalFare`, `currency`, `status` |
 | `POST /payments` | `rideId`, `fareId`, `method` | `paymentId`, `rideId`, `fareId`, `status`, `amount`, `currency`, `recordedAt` |
 | `GET /receipts/{rideId}` | — | `receiptId`, `rideId`, `paymentId`, `amount`, `currency`, `status`, `issuedAt` |
 
-The fixed initial currency is `LKR`. Fare parameters and simulated failure behavior are service-owned implementation details, but their externally returned amount and payment status must follow this contract.
+The fixed initial currency is `LKR`. The documented v1 rule is `200.00 + (distanceKm × 50.00) + (durationMinutes × 10.00)`, rounded to two decimal places. `method: "FAIL"` deliberately records a failed simulated payment for the negative workflow. Receipts are persisted in the Fare & Payment service's `receipts` collection.
