@@ -34,18 +34,18 @@ Driver & Vehicle answers **who is available**; Ride Management decides **who is 
 
 - Java 21
 - MongoDB for local development or an isolated MongoDB Atlas database per service
-- RabbitMQ/CloudAMQP for Ride Management and Fare & Payment once messaging is implemented
+- RabbitMQ/CloudAMQP for Ride Management and Fare & Payment (required for `PaymentRecorded` settlement events)
 
-Copy the relevant service `.env.example` values into IDE/run-configuration environment variables. Do not commit `.env` files, database credentials, JWT secrets, or CloudAMQP URLs.
+Use your own local, ignored configuration for database credentials, JWT secrets, and RabbitMQ URLs. Do not commit secrets or connection strings.
 
 The baseline applications use local MongoDB defaults and these ports:
 
 | Service | Port | Swagger URL |
 | --- | ---: | --- |
-| Account | 8081 | `http://localhost:8081/swagger-ui.html` |
-| Driver & Vehicle | 8082 | `http://localhost:8082/swagger-ui.html` |
-| Ride Management | 8083 | `http://localhost:8083/swagger-ui.html` |
-| Fare & Payment | 8084 | `http://localhost:8084/swagger-ui.html` |
+| Account | 8081 | `http://localhost:8081/swagger-ui/index.html` |
+| Driver & Vehicle | 8082 | `http://localhost:8082/swagger-ui/index.html` |
+| Ride Management | 8083 | `http://localhost:8083/swagger-ui/index.html` |
+| Fare & Payment | 8084 | `http://localhost:8084/swagger-ui/index.html` |
 
 ## Build, test, and run
 
@@ -60,7 +60,9 @@ cd ridelink
 ./mvnw -pl ride-management-service spring-boot:run
 ```
 
-Run Fare & Payment before Ride Management when their synchronous integration is implemented. RabbitMQ is only needed once the `PaymentRecorded` consumer/publisher is implemented.
+Start MongoDB and RabbitMQ, set the same 32+-character `JWT_SECRET` in every service, then run Fare & Payment, Driver & Vehicle, Ride Management, and Account in separate terminals. Use each service's `.env.example` as the non-sensitive configuration template. Run `./mvnw --batch-mode verify` before demonstrating.
+
+The v1 fare rule is **LKR 200.00 + LKR 50.00/km + LKR 10.00/minute**, rounded to two decimals. Use payment method `FAIL` to demonstrate the required failed-payment negative scenario.
 
 ## Shared interfaces
 
