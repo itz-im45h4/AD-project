@@ -2523,3 +2523,4 @@ if (res.fareId) { pm.collectionVariables.set('fareId', res.fareId); }
 ---
 **End of Technical Report and Submission Package**
 
+**End of Technical Report**

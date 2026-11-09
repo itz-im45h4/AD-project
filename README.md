@@ -23,10 +23,10 @@ Repository CI lives at `.github/workflows/ci.yml`, as required by GitHub Actions
 
 | Owner | Service | Responsibility |
 | --- | --- | --- |
-| Member 1 | Account | Identity, authentication, roles, profiles, account status |
-| Member 2 | Driver & Vehicle | Driver readiness, vehicles, availability, location, eligible-driver lookup |
-| Member 3 | Ride Management | Ride lifecycle, driver assignment, orchestration |
-| Member 4 | Fare & Payment | Estimates, final fares, simulated payments, receipts |
+| Member 1 -Minadi | Account | Identity, authentication, roles, profiles, account status |
+| Member 2 -Kavidya | Driver & Vehicle | Driver readiness, vehicles, availability, location, eligible-driver lookup |
+| Member 3 -Imasha| Ride Management | Ride lifecycle, driver assignment, orchestration |
+| Member 4 -Dilneth| Fare & Payment | Estimates, final fares, simulated payments, receipts |
 
 Driver & Vehicle answers **who is available**; Ride Management decides **who is assigned**. Fare & Payment owns monetary records; Ride Management owns ride state. Every service owns a separate MongoDB database and may only exchange IDs and documented API/event messages.
 

@@ -1,0 +1,27 @@
+name: Verify Ride Management Service
+
+on:
+  pull_request:
+    branches: [main, develop, master]
+  push:
+    branches: [main, develop, master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Verify and Test Service
+        run: ./mvnw --batch-mode verify
