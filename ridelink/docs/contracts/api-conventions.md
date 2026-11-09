@@ -1,5 +1,7 @@
 # API Conventions (v1)
 
+> **Viva note:** This file is the group's shared API agreement. It prevents independently developed services from silently changing paths, identifiers, authentication, error shapes, or JSON fields during integration.
+
 - Base path: `/api/v1`.
 - JSON properties use `camelCase`.
 - Public and cross-service identifiers are opaque UUID strings; MongoDB object IDs are not API contracts.

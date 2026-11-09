@@ -1,0 +1,1 @@
+package com.ridelink.farepayment.messaging; import java.math.BigDecimal; import java.time.Instant; public record PaymentRecorded(String eventId,String eventType,Instant occurredAt,String rideId,String paymentId,String status,BigDecimal amount,String currency){}
